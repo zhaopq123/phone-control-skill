@@ -35,6 +35,9 @@ ph connect 192.168.1.23:5555   # 无线设备：连一次，地址记进配置
 ph dev                     # 确认当前设备
 ```
 
+adb 不在 PATH 时用全局参数指定：`ph --adb D:/platform-tools/adb.exe setup --save`；
+`--adb` / `--keydir` / `--port` / `-d` 都是**全局参数，必须写在子命令前面**（写成 `setup --adb` 会报错）。
+
 `ph` = `python "<技能目录>/scripts/phone.py"`（技能目录名是中文，shell 里**要加引号**）。
 Windows 上把 adb 放本地盘（`setup --local`），每条命令能省 1.5s——网络盘/UNC 上跑 adb.exe
 每次调用都要重新加载 8MB 可执行文件。
